@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ScrollArea } from "@/components/ui/scroll-area"
+
 import {
   Search,
   Plus,
@@ -15,12 +16,15 @@ import {
 } from "lucide-react"
 
 export default function Dashboard() {
+
+ 
+  
   return (
     <div className="flex h-screen bg-background">
       {/* Sidebar */}
       <aside className="w-64 border-r">
         <div className="flex h-14 items-center border-b px-4">
-          <h1 className="text-lg font-semibold">Doc Collab</h1>
+          <h1 className="text-lg font-semibold">DocEditor</h1>
         </div>
         <nav className="space-y-2 p-4">
           <Button variant="ghost" className="w-full justify-start">
@@ -83,14 +87,15 @@ export default function Dashboard() {
           <h2 className="text-2xl font-bold mb-4">Recent Documents</h2>
           <ScrollArea className="h-[calc(100vh-250px)]">
             <div className="space-y-4">
-              
+              {[...Array(10)].map((_, i) => (
                 <div
+                  key={i}
                   className="flex items-center justify-between p-4 rounded-lg border"
                 >
                   <div className="flex items-center">
                     <File className="mr-2 h-4 w-4" />
                     <div>
-                      <h3 className="font-semibold">Document</h3>
+                      <h3 className="font-semibold">Document {i + 1}</h3>
                       <p className="text-sm text-muted-foreground">
                         Last edited {Math.floor(Math.random() * 60) + 1} minutes ago
                       </p>
@@ -100,6 +105,7 @@ export default function Dashboard() {
                     <MoreVertical className="h-4 w-4" />
                   </Button>
                 </div>
+              ))}
             </div>
           </ScrollArea>
         </div>

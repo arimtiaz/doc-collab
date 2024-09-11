@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
+import { login, signup } from '../sign-in/actions'
 
 export default function SignUp() {
   return (
@@ -21,7 +22,7 @@ export default function SignUp() {
           <div className="space-y-4">
             <div>
               <Label htmlFor="name">Full name</Label>
-              <Input id="name" name="name" type="text" autoComplete="name" required className="mt-1" />
+              <Input id="first_name" name="name" type="text" autoComplete="name" required className="mt-1" />
             </div>
             <div>
               <Label htmlFor="email">Email address</Label>
@@ -51,7 +52,7 @@ export default function SignUp() {
             </Label>
           </div>
 
-          <Button type="submit" className="w-full">
+          <Button formAction={signup} type="submit" className="w-full">
             Create account
           </Button>
         </form>
